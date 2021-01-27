@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EXF-4d-6ex">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Personal Data-->
+        <scene sceneID="hWp-8y-BV5">
+            <objects>
+                <viewController id="gsC-7K-ABq" customClass="Setting_and_Data_ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="np9-MA-Zmd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="hli-7S-wLR"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Personal Data" image="Personal_Data_1x" id="j91-SW-N2W"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uhZ-1E-AJk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="391" y="-211"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="q4C-5R-lqF">
+            <objects>
+                <viewController id="Xpt-MH-Rxv" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oCR-Xv-udS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="p2g-ow-K8o"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Search" image="magnifier_1x" id="cYe-1m-J10"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ecz-pY-fQg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="390" y="-882"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="hnN-dE-uJZ">
+            <objects>
+                <tabBarController id="EXF-4d-6ex" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Sm6-YX-RIM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Xpt-MH-Rxv" kind="relationship" relationship="viewControllers" id="k93-a8-VbI"/>
+                        <segue destination="gsC-7K-ABq" kind="relationship" relationship="viewControllers" id="6yL-Du-v5p"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZDM-Wv-k7J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-425" y="-212"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Personal_Data_1x" width="30" height="30"/>
+        <image name="magnifier_1x" width="30" height="30"/>
+    </resources>
+</document>
