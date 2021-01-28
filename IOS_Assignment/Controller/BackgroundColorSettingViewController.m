@@ -27,7 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    defaultManager = [DefaultColorManager new];
+
     [self initUIView];
     [self calculateWidthRatio];
     [self configurePreviousPageBtn];
@@ -40,8 +40,8 @@
 }
 
 -(void)initUIView {
-    BOOL currentColorSettingIsLight = [defaultManager checkDefaultColor];
-    if(currentColorSettingIsLight == YES) {
+    defaultManager = [DefaultColorManager new];
+    if([defaultManager checkDefaultColor]) {
         self.view.backgroundColor = [UIColor whiteColor];
     }else {
         self.view.backgroundColor = [UIColor lightGrayColor];

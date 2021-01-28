@@ -53,7 +53,7 @@
 
 -(void)checkDefaultColorSetting {
     defaultColorManager = [DefaultColorManager new];
-    if([defaultColorManager checkDefaultColor] == YES) {
+    if([defaultColorManager checkDefaultColor]) {
         self.view.backgroundColor = [UIColor whiteColor];
         [backgroundColorButton changeDefaultColor];
         [localFavoriteButton changeDefaultColor];

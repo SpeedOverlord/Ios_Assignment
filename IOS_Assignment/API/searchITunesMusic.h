@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface searchITunesMusic : NSObject
+@interface SearchITunesMusic : NSObject
 
 -(void)initSearch :(NSString *) inputData musicBlock:(void (^)(NSDictionary *))completeAction;
 

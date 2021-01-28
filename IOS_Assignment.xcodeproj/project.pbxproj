@@ -22,7 +22,7 @@
 		6C16207D25BFF4E7007513FB /* AppleITunesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C16207C25BFF4E7007513FB /* AppleITunesViewController.m */; };
 		6C7C2C8A25AC1F5000B768AC /* FavoriteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7C2C8925AC1F5000B768AC /* FavoriteManager.m */; };
 		6CC8613B259C455300AE85A7 /* searchButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC8613A259C455300AE85A7 /* searchButtonView.m */; };
-		6CC8613E259D5A1700AE85A7 /* searchITunesMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC8613D259D5A1700AE85A7 /* searchITunesMusic.m */; };
+		6CC8613E259D5A1700AE85A7 /* SearchITunesMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC8613D259D5A1700AE85A7 /* SearchITunesMusic.m */; };
 		6CC86144259DBA1800AE85A7 /* searchResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC86143259DBA1800AE85A7 /* searchResultTableViewCell.m */; };
 		6CEA75BE259968CC00C77D5C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CEA75BD259968CC00C77D5C /* AppDelegate.m */; };
 		6CEA75C1259968CC00C77D5C /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CEA75C0259968CC00C77D5C /* SceneDelegate.m */; };
@@ -88,8 +88,8 @@
 		6C7C2C8925AC1F5000B768AC /* FavoriteManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavoriteManager.m; sourceTree = "<group>"; };
 		6CC86139259C455300AE85A7 /* searchButtonView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = searchButtonView.h; sourceTree = "<group>"; };
 		6CC8613A259C455300AE85A7 /* searchButtonView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = searchButtonView.m; sourceTree = "<group>"; };
-		6CC8613C259D5A1700AE85A7 /* searchITunesMusic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = searchITunesMusic.h; sourceTree = "<group>"; };
-		6CC8613D259D5A1700AE85A7 /* searchITunesMusic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = searchITunesMusic.m; sourceTree = "<group>"; };
+		6CC8613C259D5A1700AE85A7 /* SearchITunesMusic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchITunesMusic.h; sourceTree = "<group>"; };
+		6CC8613D259D5A1700AE85A7 /* SearchITunesMusic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchITunesMusic.m; sourceTree = "<group>"; };
 		6CC86142259DBA1800AE85A7 /* searchResultTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = searchResultTableViewCell.h; sourceTree = "<group>"; };
 		6CC86143259DBA1800AE85A7 /* searchResultTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = searchResultTableViewCell.m; sourceTree = "<group>"; };
 		6CEA75B9259968CC00C77D5C /* IOS_Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOS_Assignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -226,8 +226,8 @@
 		6CEA75F32599701100C77D5C /* API */ = {
 			isa = PBXGroup;
 			children = (
-				6CC8613C259D5A1700AE85A7 /* searchITunesMusic.h */,
-				6CC8613D259D5A1700AE85A7 /* searchITunesMusic.m */,
+				6CC8613C259D5A1700AE85A7 /* SearchITunesMusic.h */,
+				6CC8613D259D5A1700AE85A7 /* SearchITunesMusic.m */,
 				6C7C2C8825AC1F5000B768AC /* FavoriteManager.h */,
 				6C7C2C8925AC1F5000B768AC /* FavoriteManager.m */,
 				6C16206625B6B34A007513FB /* DefaultColorManager.h */,
@@ -560,7 +560,7 @@
 				6C16205C25B66FFA007513FB /* backgroundColorButtonView.m in Sources */,
 				6C16206225B6A261007513FB /* previousButtonView.m in Sources */,
 				6C16206E25B7FE98007513FB /* LocalFavoriteDataViewController.m in Sources */,
-				6CC8613E259D5A1700AE85A7 /* searchITunesMusic.m in Sources */,
+				6CC8613E259D5A1700AE85A7 /* SearchITunesMusic.m in Sources */,
 				6CEA75C1259968CC00C77D5C /* SceneDelegate.m in Sources */,
 				6CEA75FE2599740700C77D5C /* Setting_and_Data_ViewController.m in Sources */,
 			);

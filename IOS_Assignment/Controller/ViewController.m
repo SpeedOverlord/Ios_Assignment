@@ -9,12 +9,13 @@
 #import "ViewController.h"
 #import "InputView.h"
 #import "searchButtonView.h"
-#import "searchITunesMusic.h"
+#import "SearchITunesMusic.h"
 #import "searchResultTableViewCell.h"
 #import <SDWebImage/SDWebImage.h>
 #import "FavoriteManager.h"
 #import "DefaultColorManager.h"
 #import "AppleITunesSelectedItemViewController.h"
+
 
 @interface ViewController() <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>{
     InputView *textField;
@@ -39,6 +40,7 @@
 @property (nonatomic, strong) NSLayoutConstraint *textFieldUpperBond, *textFieldLowerBond, *textFieldLeftBond, *textFieldRightBond;
 @property (nonatomic, strong)NSLayoutConstraint *searchButtonUpperBond, *searchButtonLowerBond, *searchButtonLeftBond, *searchButtonRightBond;
 @property (nonatomic, strong) NSLayoutConstraint *tableViewUpperBond, *tableViewLowerBond, *tableViewLeftBond, *tableViewRightBond;
+
 @end
 
 @implementation ViewController
@@ -66,7 +68,7 @@
 
 -(void)checkDefaultColorSetting {
     defaultColorManager = [DefaultColorManager new];
-    if([defaultColorManager checkDefaultColor] == YES) {
+    if([defaultColorManager checkDefaultColor]) {
         self.view.backgroundColor = [UIColor whiteColor];
         tableView.backgroundColor = [UIColor whiteColor];
         [tableView reloadData];
@@ -175,7 +177,7 @@
 #pragma mark -searchButtonView Action
 -(void)onClickSearchButton {
     NSString *fixedString = [self replaceSpaceWithAddition:textField.textField.text];
-    [[searchITunesMusic alloc] initSearch:fixedString musicBlock:^(NSDictionary * returnObj) {
+    [[SearchITunesMusic alloc] initSearch:fixedString musicBlock:^(NSDictionary * returnObj) {
         NSMutableArray *searchDataArray = [[NSMutableArray alloc]init];
         [self initFavoriteManager];
         [self separateSearchData:returnObj searchDataArray:searchDataArray];
@@ -327,10 +329,9 @@
     }
     //addFavorite
     NSString *isFavorite = [[[searchDataArray objectAtIndex: indexPath.section] valueForKey:@"trackName"] objectAtIndex:indexPath.row];
-    
     BOOL favoriteStatus = [favoriteManager isFavorite: isFavorite];
     if(indexPath.section == 0) {
-        if(favoriteStatus == NO ) {
+        if(!favoriteStatus ) {
             cell.addFavorite.hidden = NO;
             cell.addFavorite.tag =
             (indexPath.section * 1000 + indexPath.row);
@@ -339,7 +340,7 @@
             cell.addFavorite.hidden = YES;
         }
     }else if(indexPath.section == 1) {
-        if(favoriteStatus == NO) {
+        if(!favoriteStatus) {
             cell.addFavorite.hidden = NO;
             cell.addFavorite.tag = (indexPath.section * 1000 + indexPath.row);
             [cell.addFavorite addTarget:self action: @selector(onClickAddFavoriteButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -350,7 +351,7 @@
     
     //removeFavorite
     if(indexPath.section == 0) {
-        if(favoriteStatus == YES) {
+        if(favoriteStatus) {
             cell.removeFavorite.hidden = NO;
             cell.removeFavorite.tag = (indexPath.section * 1000 + indexPath.row);
             [cell.removeFavorite addTarget:self action: @selector(onClickRemoveFavoriteButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -358,7 +359,7 @@
             cell.removeFavorite.hidden = YES;
         }
     }else if(indexPath.section == 1) {
-        if(favoriteStatus == YES) {
+        if(favoriteStatus) {
             cell.removeFavorite.hidden = NO;
             cell.removeFavorite.tag = (indexPath.section * 1000 + indexPath.row);
             [cell.removeFavorite addTarget:self action: @selector(onClickRemoveFavoriteButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -446,9 +447,11 @@
 -(void)onClickPhoto: (int)tag{
     int currentRow = tag % 1000;
     int currentSection = tag / 1000;
+    UIApplication *application = [UIApplication sharedApplication];
     trackViewUrl = [NSString stringWithString:[[[searchDataArray objectAtIndex: currentSection] valueForKey:@"trackViewUrl"] objectAtIndex:currentRow]];
-      [[UIApplication sharedApplication] openURL:[NSURL URLWithString:trackViewUrl]];
-    
+    NSURL *nsUrl = [NSURL URLWithString: trackViewUrl];
+    [application openURL:nsUrl options:@{} completionHandler:^(BOOL success) {
+    }];
 }
 
 @end

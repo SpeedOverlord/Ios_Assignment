@@ -30,17 +30,12 @@
     NSMutableArray *isCellExtendArray;
     FavoriteManager *favoriteManager;
     NSString *trackViewUrl;
-    
 }
 
 @property (nonatomic, strong) NSLayoutConstraint *previousBtnUpperBond, *previousBtnLowerBond, *previousBtnLeftBond, *previousBtnRightBond;
-
 @property (nonatomic, strong) NSLayoutConstraint *localFavoriteUpper, *localFavoriteLower, *localFavoriteLeft, *localFavoriteRight;
-
 @property (nonatomic, strong) NSLayoutConstraint *localMovieUpper, *localMovieLower, *localMovieLeft, *localMovieRight;
-
 @property (nonatomic, strong) NSLayoutConstraint *localMusicUpper, *localMusicLower, *localMusicLeft, *localMusicRight;
-
 
 @end
 
@@ -48,7 +43,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    defaultManager = [DefaultColorManager new];
     currentFavoriteArray = [NSMutableArray new];
     specificFavoriteArray = [NSMutableArray new];
     favoriteManager = [[FavoriteManager alloc]init];
@@ -66,8 +60,8 @@
 }
 
 -(void)initUIView {
-    BOOL currentColorSettingIsLight = [defaultManager checkDefaultColor];
-    if(currentColorSettingIsLight == YES) {
+    defaultManager = [DefaultColorManager new];
+    if([defaultManager checkDefaultColor]) {
         self.view.backgroundColor = [UIColor whiteColor];
     }else {
         self.view.backgroundColor = [UIColor lightGrayColor];
@@ -290,7 +284,7 @@
     
     //removeFavorite
     NSLog(@"status %d", favoriteStatus);
-    if(favoriteStatus == YES) {
+    if(favoriteStatus) {
         cell.removeFavorite.hidden = NO;
         cell.removeFavorite.tag = indexPath.row;
         [cell.removeFavorite addTarget:self action: @selector(onClickRemoveFavoriteButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -308,7 +302,7 @@
 #pragma mark -color setting
 -(void)checkDefaultColorSetting {
     defaultColorManager = [DefaultColorManager new];
-    if([defaultColorManager checkDefaultColor] == YES) {
+    if([defaultColorManager checkDefaultColor]) {
         self.view.backgroundColor = [UIColor whiteColor];
         localFavoriteTable.backgroundColor = [UIColor whiteColor];
         [localFavoriteTable reloadData];
@@ -365,9 +359,11 @@
 
 -(void)onClickPhoto: (int)tag{
     int currentRow = tag % 1000;
+    UIApplication *application = [UIApplication sharedApplication];
     trackViewUrl = [NSString stringWithString:    [specificFavoriteArray[currentRow] valueForKey:@"trackViewUrl"]];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:trackViewUrl]];
-    
+    NSURL *nsUrl = [NSURL URLWithString: trackViewUrl];
+    [application openURL:nsUrl options:@{} completionHandler:^(BOOL success) {
+    }];
 }
 
 @end

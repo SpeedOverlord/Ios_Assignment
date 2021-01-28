@@ -6,9 +6,9 @@
 //  Copyright © 2020 陳彥廷21632. All rights reserved.
 //
 
-#import "searchITunesMusic.h"
+#import "SearchITunesMusic.h"
 #import "AFNetworking.h"
-@implementation searchITunesMusic {
+@implementation SearchITunesMusic {
     NSDictionary *searchData;
     
 }

@@ -9,7 +9,6 @@
 #import "AppleITunesViewController.h"
 
 @interface AppleITunesViewController ()
-
 @end
 
 @implementation AppleITunesViewController

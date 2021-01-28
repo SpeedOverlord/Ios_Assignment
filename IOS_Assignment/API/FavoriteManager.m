@@ -21,7 +21,6 @@
 -(id)init {
     self = [super init];
     if(self) {
-//        NSString *appDomin = [[NSBundle mainBundle]bundleIdentifier];
         favoriteCombineArray = [[NSMutableArray alloc]init];
         favoriteData = [NSUserDefaults standardUserDefaults];
         currentFavoriteArray = [NSMutableArray new];
@@ -32,7 +31,7 @@
 
 -(void)updateDataArray {
     [favoriteCombineArray removeAllObjects];
-    if([self getFavorite] != nil) {
+    if([self getFavorite]) {
         [favoriteCombineArray addObjectsFromArray: [self getFavorite]];
     }
     [self storeDataInLocalDevice];

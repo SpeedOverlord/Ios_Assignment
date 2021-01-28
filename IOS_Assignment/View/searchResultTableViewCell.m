@@ -49,7 +49,6 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-    // Configure the view for the selected state
 }
 
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -88,8 +87,6 @@
     [self.readMore setTitle:@"read more" forState:UIControlStateNormal];
     [self.readMore setTitleColor: [UIColor blackColor] forState:UIControlStateNormal];
     [self.readMore.titleLabel setFont:  [UIFont fontWithName:@"Arial" size:12.0f]];
-//    self.readMore.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 35);
-//    [self.readMore.titleLabel setTextAlignment:NSTextAlignmentLeft];
     self.readMore.backgroundColor = [UIColor cyanColor];
     self.trackTime = [[UILabel alloc] initWithFrame:CGRectZero];
     self.coverURL = [[UIImageView alloc] initWithFrame:CGRectZero];
@@ -103,7 +100,6 @@
     [self.removeFavorite setTitleColor: [UIColor blackColor] forState:UIControlStateNormal];
     [self.removeFavorite.titleLabel setFont:  [UIFont fontWithName:@"Arial" size:16]];
     self.removeFavorite.backgroundColor = [UIColor systemYellowColor];
-    
     [self.contentView addSubview: self.trackName];
     [self.contentView addSubview: self.artistName];
     [self.contentView addSubview: self.collectionName];
@@ -200,13 +196,11 @@
     self.descriptionUpperBond = [self.description.topAnchor constraintEqualToAnchor: self.trackTime.bottomAnchor constant: 5];
     self.descriptionUpperBond.active = YES;
     self.descriptionLowerBond = [self.description.bottomAnchor  constraintEqualToAnchor:self.contentView.bottomAnchor constant:-15];
-    //self.descriptionLowerBond.priority = 999;
     self.descriptionLowerBond.active = YES;
     self.descriptionLeftBond = [self.description.leadingAnchor constraintEqualToAnchor: self.contentView.leadingAnchor constant:80];
     self.descriptionLeftBond.active = YES;
     self.descriptionRightBond = [self.description.widthAnchor constraintEqualToConstant:200];
     self.descriptionRightBond.active = YES;
-  //  self.description.numberOfLines = 2;
 }
 
 -(void)setReadMore {
